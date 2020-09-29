@@ -5,3 +5,5 @@ npm i --save-dev @babel/core @babel/cli @babel/preset-env @babel/preset-react
 npm install --save react react-dom
 npm i --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader
 npx webpack-dev-server --mode development
+npm i --save-dev react-hot-loader
+npm run dev
