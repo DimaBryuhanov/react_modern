@@ -5,7 +5,7 @@ import '../css/App.css';
 const App = () => {
     return (<div className="App">
         <h1>App component check</h1>
-    </div>)
-}
+    </div>);
+};
 
 export default hot(module)(App);
