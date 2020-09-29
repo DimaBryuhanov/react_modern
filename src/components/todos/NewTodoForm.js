@@ -9,11 +9,11 @@ const NewTodoForm = () => {
             <input 
                 className="new-todo-input"
                 type="text" 
-                placeholder="Type your new TODO here"
+                placeholder="Add TODO here"
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
             />
-            <button className="new-todo-button">Create Todo</button>
+            <button className="new-todo-button">Add Todo</button>
         </div>
     );
 };
