@@ -9,3 +9,8 @@ npm i --save-dev react-hot-loader
 npm run dev
 npm i --save redux react-redux
 npm install redux-persist
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd/related
+{
+type: 'ADD_TO_DO',
+payload: {"text": "This is a test"}
+}
