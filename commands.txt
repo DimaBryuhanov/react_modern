@@ -28,3 +28,6 @@ CHALLENGE-1:
         reducers
         button click handlers -> changes the isCompleted = True
         if isCompleted - the button is invisible, otherwise we can see the button
+
+npm install redux-thunk redux-devtools-extension @babel/runtime
+npm i --save-dev @babel/plugin-transform-runtime
