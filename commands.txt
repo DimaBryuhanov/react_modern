@@ -8,3 +8,4 @@ npx webpack-dev-server --mode development
 npm i --save-dev react-hot-loader
 npm run dev
 npm i --save redux react-redux
+npm install redux-persist
