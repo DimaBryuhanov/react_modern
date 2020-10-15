@@ -14,3 +14,17 @@ https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfk
 type: 'ADD_TO_DO',
 payload: {"text": "This is a test"}
 }
+Best Practices:
+1. When connecting to the Redux Store: export connected & unconnected versions of the components
+2. Keep Redux actions and async operations out of reducers
+3. Carefully think wich components to connect. The more connections, the less reusability.
+   E.g.: Now 'todos' are directly linked with the store.
+         What if we want to use the Complete & Incomplete todos separately?
+
+CHALLENGE-1:
+    Using the adding / removing example, 
+    add: Completed / Incompleted 
+        actions
+        reducers
+        button click handlers -> changes the isCompleted = True
+        if isCompleted - the button is invisible, otherwise we can see the button

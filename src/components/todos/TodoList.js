@@ -2,16 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NewTodoForm from './NewTodoForm';
 import TodoItem from './TodoItem';
-import { removeTodo } from '../actions';
+import { removeTodo, completeTodo } from '../actions';
 
-const TodoList = ({ todos = [], onRemovePressed }) => {
+const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed }) => {
+
     return (
         <div className="list-wrapper">
             <NewTodoForm />
-            {todos.map(todo =>
+            {todos.map((todo, i) =>
                 <TodoItem
+                    key={i}
                     todo={todo}
                     onRemovePressed={onRemovePressed}
+                    onCompletedPressed={onCompletedPressed}
                 />)}
         </div>
     );
@@ -34,6 +37,7 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = dispatch => ({
     onRemovePressed: text => dispatch(removeTodo(text)),
+    onCompletedPressed: text => dispatch(completeTodo(text)),
 })
 
 //connect connects the Component to the Store
