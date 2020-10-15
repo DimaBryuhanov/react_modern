@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import NewTodoForm from './NewTodoForm';
 import TodoItem from './TodoItem';
 import { removeTodo, completeTodo } from '../actions';
+import { displayAlert } from './thunks';
 
-const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed }) => {
+const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed, onDisplayAlertPressed }) => {
 
     return (
         <div className="list-wrapper">
@@ -14,7 +15,7 @@ const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed }) => {
                     key={i}
                     todo={todo}
                     onRemovePressed={onRemovePressed}
-                    onCompletedPressed={onCompletedPressed}
+                    onCompletedPressed={onDisplayAlertPressed}
                 />)}
         </div>
     );
@@ -38,6 +39,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onRemovePressed: text => dispatch(removeTodo(text)),
     onCompletedPressed: text => dispatch(completeTodo(text)),
+    onDisplayAlertPressed: text => dispatch(displayAlert(text)),
 })
 
 //connect connects the Component to the Store
