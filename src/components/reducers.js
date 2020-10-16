@@ -46,6 +46,13 @@ export const todos = (state = [], action) => {
                 return todo;
             })
         }
+        case LOAD_TODOS_SUCCESS:{
+            const { todos } = payload;
+            return todos;
+        }
+        //Their bodies are the same as the default case:
+        case LOAD_TODOS_IN_PROGRESS:
+        case LOAD_TODOS_FAILURE:
         default:
             return state;
     }
