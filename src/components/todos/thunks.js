@@ -8,7 +8,7 @@ import { loadTodosInProgress, loadTodosSuccess, loadTodosFailure} from '../actio
 export const loadTodos = () => async (dispatch, getState) => {
     try{
         dispatch(loadTodosInProgress());
-        const response = await fetch('http://localhost:8080/todos');
+        const response = await fetch('http://localhost:8080/todos-delay');
         const todos = await response.json();
     
         dispatch(loadTodosSuccess(todos)); //used to put all the todos in the redux store

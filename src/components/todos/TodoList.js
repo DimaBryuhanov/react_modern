@@ -1,24 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import NewTodoForm from './NewTodoForm';
 import TodoItem from './TodoItem';
 import { removeTodo, completeTodo } from '../actions';
-import { displayAlert } from './thunks';
+import { loadTodos } from './thunks';
 
-const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed}) => {
+const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed, isLoading, startLoadingTodos}) => {
 
-    return (
+    useEffect(() => {
+        startLoadingTodos();
+    }, []);
+
+    const loadingMessage = <div>Loading todos...</div>
+    const content = (
         <div className="list-wrapper">
             <NewTodoForm />
-            {todos.map((todo, i) =>
+            {todos.map((todo) =>
                 <TodoItem
-                    key={i}
+                    key={todo.id}
                     todo={todo}
                     onRemovePressed={onRemovePressed}
                     onCompletedPressed={onCompletedPressed}
                 />)}
         </div>
     );
+    return isLoading ? loadingMessage : content;
 };
 
 /**
@@ -27,8 +33,8 @@ const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed}) => {
  * @returns pieces of the global state that the component needs access to
  */
 const mapStateToProps = state => ({
+    isLoading: state.isLoading,
     todos: state.todos,
-
 });
 
 /**
@@ -39,7 +45,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onRemovePressed: text => dispatch(removeTodo(text)),
     onCompletedPressed: text => dispatch(completeTodo(text)),
-
+    startLoadingTodos: () => dispatch(loadTodos()),
 })
 
 //connect connects the Component to the Store
