@@ -1,4 +1,10 @@
-import { loadTodosInProgress, loadTodosSuccess, loadTodosFailure} from '../actions';
+import { 
+    loadTodosInProgress, 
+    removeTodo, 
+    loadTodosSuccess, 
+    loadTodosFailure,
+    completeTodo,
+} from '../actions';
 
 /**
  * A thunk gets two arguments when it is triggered:
@@ -31,6 +37,28 @@ export const addTodoRequest = text => async () => {
     });
     const todo = await response.json();
     dispatch(createTodo(todo));
+    }catch(e){
+        dispatch(displayAlert(e));
+    }
+};
+
+export const removeTodoRequest = id => async dispatch => {
+    try{
+        const response = await fetch(`http://localhost:8080/todos/${id}`,
+        {method: 'DELETE'});
+        const removedTodo = await response.json();
+        dispatch(removeTodo(removedTodo));
+    }catch(e){
+        dispatch(displayAlert(e));
+    }
+}
+
+export const isCompletedRequest = id = async dispatch => {
+    try{
+        const response = await fetch(`http://localhost:8080/todos/${id}/completed`,
+        {method: 'post'});
+        const updatedTodo = await response.json();
+        dispatch(completeTodo(updatedTodo));
     }catch(e){
         dispatch(displayAlert(e));
     }

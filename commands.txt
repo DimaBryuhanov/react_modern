@@ -36,3 +36,13 @@ cd react-ecosystems-server
 npm install
 npm run start
 
+CHALLENGE-2:
+    Using addition / deletion as examples,
+    add:  Completed 
+    Mind: it must be a POST request with an id as an argument
+    Returns: entire updated todo
+    Changes / additions to be made in:
+        thunks
+        actions
+        reducers
+        components - must use a thunk instead of an action

@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import NewTodoForm from './NewTodoForm';
 import TodoItem from './TodoItem';
-import { removeTodo, completeTodo } from '../actions';
-import { loadTodos } from './thunks';
+import { loadTodos, removeTodoRequest, isCompletedRequest } from './thunks';
 
 const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed, isLoading, startLoadingTodos}) => {
 
@@ -43,8 +42,8 @@ const mapStateToProps = state => ({
  * @returns pieces of the global state that the component needs access to
  */
 const mapDispatchToProps = dispatch => ({
-    onRemovePressed: text => dispatch(removeTodo(text)),
-    onCompletedPressed: text => dispatch(completeTodo(text)),
+    onRemovePressed: id => dispatch(removeTodoRequest(id)),
+    onCompletedPressed: id => dispatch(isCompletedRequest(id)),
     startLoadingTodos: () => dispatch(loadTodos()),
 })
 

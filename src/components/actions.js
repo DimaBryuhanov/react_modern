@@ -5,15 +5,15 @@ export const addTodo = todo => ({
 });
 
 export const REMOVE_TO_DO = 'REMOVE_TO_DO';
-export const removeTodo = text => ({
+export const removeTodo = todo => ({
     type: REMOVE_TO_DO,
-    payload: { text }
+    payload: { todo }
 });
 
 export const COMPLETE_TODO = 'COMPLETE_TODO';
-export const completeTodo = text => ({
+export const completeTodo = todo => ({
     type: COMPLETE_TODO,
-    payload: { text }
+    payload: { todo }
 });
 
 
