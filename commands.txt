@@ -31,3 +31,8 @@ CHALLENGE-1:
 
 npm install redux-thunk redux-devtools-extension @babel/runtime
 npm i --save-dev @babel/plugin-transform-runtime
+
+cd react-ecosystems-server
+npm install
+npm run start
+
