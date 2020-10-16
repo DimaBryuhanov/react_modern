@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux'; // A higher order function
-import { addTodo } from '../actions';
+import { addTodoRequest } from './thunks';
 
 
 const NewTodoForm = ({ todos, onCreatePressed }) => {
@@ -46,7 +46,7 @@ const mapStateToProps = state => ({
  * @returns pieces of the global state that the component needs access to
  */
 const mapDispatchToProps = dispatch => ({
-    onCreatePressed: text => dispatch(addTodo(text))
+    onCreatePressed: text => dispatch(addTodoRequest(text))
 });
 //connect connects the Component to the Store
 export default connect(mapStateToProps, mapDispatchToProps)(NewTodoForm);// A higher order function

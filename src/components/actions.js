@@ -1,7 +1,7 @@
 export const ADD_TO_DO = 'ADD_TO_DO';
-export const addTodo = text => ({
+export const addTodo = todo => ({
     type: ADD_TO_DO,
-    payload: { text }
+    payload: { todo }
 });
 
 export const REMOVE_TO_DO = 'REMOVE_TO_DO';

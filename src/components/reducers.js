@@ -26,12 +26,8 @@ export const todos = (state = [], action) => {
 
     switch (type) {
         case ADD_TO_DO: {
-            const { text } = payload;
-            const newTodo = {
-                text,
-                isComplete: false
-            }
-            return state.concat(newTodo);
+            const { todo } = payload;
+            return state.concat(todo);
         }
         case REMOVE_TO_DO: {
             const { text } = payload;
