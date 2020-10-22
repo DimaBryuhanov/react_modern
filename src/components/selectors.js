@@ -10,5 +10,10 @@ export const getTodosLoading = state => state.todos.isLoading;
 export const getIncompleteTodos = createSelector(
     getTodos,
     todos.filter(todo => !todo.isCompleted)
-)
+);
 
+//Try as a challenge:
+export const getCompletedTodos = createSelector(
+    getTodos,
+    todos.filter(todo => todo.isCompleted)
+);
