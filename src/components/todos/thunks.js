@@ -4,6 +4,7 @@ import {
     loadTodosSuccess, 
     loadTodosFailure,
     completeTodo,
+    addTodo  
 } from '../actions';
 
 /**
@@ -36,7 +37,7 @@ export const addTodoRequest = text => async () => {
         body,
     });
     const todo = await response.json();
-    dispatch(createTodo(todo));
+    dispatch(addTodo(todo));
     }catch(e){
         dispatch(displayAlert(e));
     }
@@ -53,7 +54,7 @@ export const removeTodoRequest = id => async dispatch => {
     }
 }
 
-export const isCompletedRequest = id = async dispatch => {
+export const isCompletedRequest = id => async dispatch => {
     try{
         const response = await fetch(`http://localhost:8080/todos/${id}/completed`,
         {method: 'post'});
