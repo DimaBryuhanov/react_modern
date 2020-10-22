@@ -21,7 +21,9 @@ export const isLoading = (state = false, action) => {
     }
 };
 
-export const todos = (state = [], action) => {
+const initialState = {isLoading: false, data: []};
+
+export const todos = (state = initialState, action) => {
     const { type, payload } = action;
 
     switch (type) {
