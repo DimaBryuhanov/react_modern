@@ -46,3 +46,5 @@ CHALLENGE-2:
         actions
         reducers
         components - must use a thunk instead of an action
+
+npm install reselect
