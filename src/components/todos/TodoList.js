@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import NewTodoForm from './NewTodoForm';
 import TodoItem from './TodoItem';
 import { loadTodos, removeTodoRequest, isCompletedRequest } from './thunks';
+import {getTodos, getTodosLoading} from '../selectors';
 
 const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed, isLoading, startLoadingTodos}) => {
 
@@ -32,8 +33,8 @@ const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed, isLoading, 
  * @returns pieces of the global state that the component needs access to
  */
 const mapStateToProps = state => ({
-    isLoading: state.isLoading,
-    todos: state.todos,
+    isLoading: getTodosLoading(state),
+    todos: getTodos(state),
 });
 
 /**

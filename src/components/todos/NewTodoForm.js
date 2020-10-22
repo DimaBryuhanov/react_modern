@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux'; // A higher order function
 import { addTodoRequest } from './thunks';
+import { getTodos } from '../selectors';
 
 
 const NewTodoForm = ({ todos, onCreatePressed }) => {
@@ -37,7 +38,7 @@ const NewTodoForm = ({ todos, onCreatePressed }) => {
  * @returns pieces of the global state that the component needs access to
  */
 const mapStateToProps = state => ({
-    todos: state.todos,
+    todos: getTodos(state),
 });
 
 /**
