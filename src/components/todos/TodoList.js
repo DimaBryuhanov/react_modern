@@ -10,11 +10,6 @@ import {
     getCompletedTodos
 } from '../selectors';
 
-const BigRedText = styled.div`
-    font-size: 48px;
-    color:#F00;
-`;
-
 const TodoList = ({ completedTodos, incompleteTodos, onRemovePressed, onCompletedPressed, isLoading, startLoadingTodos}) => {
 
     useEffect(() => {
@@ -24,7 +19,6 @@ const TodoList = ({ completedTodos, incompleteTodos, onRemovePressed, onComplete
     const loadingMessage = <div>Loading todos...</div>
     const content = (
         <div className="list-wrapper">
-            <BigRedText>I'm a styled component</BigRedText>
             <NewTodoForm />
             <h3>Incomplete:</h3>
             {incompleteTodos.map((todo) =>
