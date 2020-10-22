@@ -48,3 +48,4 @@ CHALLENGE-2:
         components - must use a thunk instead of an action
 
 npm install reselect
+npm install styled-components
